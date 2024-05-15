@@ -15,6 +15,7 @@ import java.util.Locale;
  * Implement in single class. Don't chane constructor and signature method.
  */
 public class DateSorter {
+    private static final String LETTER = "r";
 
     /**
      * The implementation of this method should sort dates.
@@ -43,17 +44,19 @@ public class DateSorter {
 
     private static Comparator<LocalDate> customDateComparator() {
         return Comparator.comparing((LocalDate date) ->
-                        date.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH).toLowerCase().contains("r"))
+                        date.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH).toLowerCase().contains(LETTER))
                 .reversed()
                 .thenComparing((date1, date2) -> {
-                    boolean r1 = date1.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH).toLowerCase().contains("r");
-                    boolean r2 = date2.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH).toLowerCase().contains("r");
+                    boolean r1 = containsLetter(date1, LETTER);
+                    boolean r2 = containsLetter(date2, LETTER);
 
-                    if (!r1 && !r2) {
-                        return date2.compareTo(date1);
-                    }
+                    if (!r1 && !r2) return date2.compareTo(date1);
                     return r1 && r2 ? date1.compareTo(date2) : 0;
                 });
+    }
+
+    private static boolean containsLetter(LocalDate date1, String letter) {
+        return date1.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH).toLowerCase().contains(letter);
     }
 
 }
