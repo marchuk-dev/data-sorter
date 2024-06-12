@@ -1,4 +1,9 @@
-This is solution of the technital task from Palanquin for Junior Java Developer by Mykhailo Marchuk
+**Overview**
+This project contains a method for sorting dates according to a specific order. The sorting criteria are as follows:
+1. Dates with an 'r' in the month should come first, sorted in ascending order (from earliest to latest).
+2. Dates without an 'r' in the month should follow, sorted in descending order (from latest to earliest).
+For instance, dates in October should appear before dates in May because October contains an 'r'.
+
 1. Clone project
 ```
 git clone https://github.com/marchuk-engineer/palanquin-tech-task.git
