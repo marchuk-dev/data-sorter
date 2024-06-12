@@ -7,13 +7,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Marking will be based upon producing a readable, well engineered solution rather than factors
- * such as speed of processing or other performance-based optimizations, which are less
- * important.
- * <p>
- * Implement in single class. Don't chane constructor and signature method.
- */
 public class DateSorter {
     private static final String LETTER = "r";
 
